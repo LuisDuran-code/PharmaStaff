@@ -19,7 +19,7 @@ public class Gerente extends Empleado{
             sueldo = sueldo - afp - isss - (sueldo * 0.20);
             return sueldo;
         } else if (sueldo > 2038.10 ) {
-            sueldo = sueldo - afp - isss - (sueldo * 030);
+            sueldo = sueldo - afp - isss - (sueldo * 0.30);
             return  sueldo;
         }
         else return null;
