@@ -3,21 +3,20 @@ import java.time.LocalDate;
 public abstract class Empleado {
 
     private String nombre;
-    private String primerApeliido;
-    private String segundoApeliido;
+    private String primerApellido;
+    private String segundoApellido;
     private Double sueldo;
     private LocalDate fechaDeNacimiento;
-
 
     public enum Genero{
         Masculino, Femenino;
     }
     private Genero genero;
 
-    public Empleado(String nombre, String primerApeliido, String segundoApeliido, Double sueldo, LocalDate fechaDeNacimiento, Genero genero) {
+    public Empleado(String nombre, String primerApellido, String segundoApellido, Double sueldo, LocalDate fechaDeNacimiento, Genero genero) {
         this.nombre = nombre;
-        this.primerApeliido = primerApeliido;
-        this.segundoApeliido = segundoApeliido;
+        this.primerApellido = primerApellido;
+        this.segundoApellido = segundoApellido;
         this.sueldo = sueldo;
         this.fechaDeNacimiento = fechaDeNacimiento;
         this.genero = genero;
@@ -31,20 +30,20 @@ public abstract class Empleado {
         this.nombre = nombre;
     }
 
-    public String getPrimerApeliido() {
-        return primerApeliido;
+    public String getPrimerApellido() {
+        return primerApellido;
     }
 
-    public void setPrimerApeliido(String primerApeliido) {
-        this.primerApeliido = primerApeliido;
+    public void setPrimerApellido(String primerApellido) {
+        this.primerApellido = primerApellido;
     }
 
-    public String getSegundoApeliido() {
-        return segundoApeliido;
+    public String getSegundoApellido() {
+        return segundoApellido;
     }
 
-    public void setSegundoApeliido(String segundoApeliido) {
-        this.segundoApeliido = segundoApeliido;
+    public void setSegundoApellido(String segundoApellido) {
+        this.segundoApellido = segundoApellido;
     }
 
     public Double getSueldo() {
@@ -76,20 +75,15 @@ public abstract class Empleado {
         Double isss = sueldo * 0.075;
 
         if(sueldo > 472.0 && sueldo < 895.25){
-
-           sueldo = sueldo - afp - isss - (sueldo * 0.10);
-
+            sueldo = sueldo - afp - isss - (sueldo * 0.10);
             return sueldo;
         } else if (sueldo >= 895.25 && sueldo <= 2038.10 ) {
             sueldo = sueldo - afp - isss - (sueldo * 0.20);
             return sueldo;
         } else if (sueldo > 2038.10 ) {
-            sueldo = sueldo - afp - isss - (sueldo * 030);
+            sueldo = sueldo - afp - isss - (sueldo * 0.30);
             return  sueldo;
         }
         else return null;
     }
-    
-
-
 }

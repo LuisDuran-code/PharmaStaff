@@ -1,8 +1,8 @@
 import java.time.LocalDate;
 
 public class Supervisor extends Empleado{
-    public Supervisor(String nombre, String primerApeliido, String segundoApeliido, Double sueldo, LocalDate fechaDeNacimiento, Genero genero) {
-        super(nombre, primerApeliido, segundoApeliido, sueldo, fechaDeNacimiento, genero);
+    public Supervisor(String nombre, String primerApellido, String segundoApellido, Double sueldo, LocalDate fechaDeNacimiento, Genero genero) {
+        super(nombre, primerApellido, segundoApellido, sueldo, fechaDeNacimiento, genero);
     }
     @Override
     public Double sueldoConDescuento(Double sueldo){
@@ -18,7 +18,7 @@ public class Supervisor extends Empleado{
             sueldo = sueldo - afp - isss - (sueldo * 0.20);
             return sueldo;
         } else if (sueldo > 2038.10 ) {
-            sueldo = sueldo - afp - isss - (sueldo * 030);
+            sueldo = sueldo - afp - isss - (sueldo * 0.30);
             return  sueldo;
         }
         else return null;
