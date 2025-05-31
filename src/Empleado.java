@@ -8,12 +8,14 @@ public abstract class Empleado {
     private Double sueldo;
     private LocalDate fechaDeNacimiento;
 
-    public enum Genero{
+    public enum Genero {
         Masculino, Femenino;
     }
+
     private Genero genero;
 
-    public Empleado(String nombre, String primerApellido, String segundoApellido, Double sueldo, LocalDate fechaDeNacimiento, Genero genero) {
+    public Empleado(String nombre, String primerApellido, String segundoApellido, Double sueldo,
+            LocalDate fechaDeNacimiento, Genero genero) {
         this.nombre = nombre;
         this.primerApellido = primerApellido;
         this.segundoApellido = segundoApellido;
@@ -70,20 +72,20 @@ public abstract class Empleado {
         this.genero = genero;
     }
 
-    public Double sueldoConDescuento(Double sueldo){
+    public Double sueldoConDescuento(Double sueldo) {
         Double afp = sueldo * 0.0775;
         Double isss = sueldo * 0.075;
 
-        if(sueldo > 472.0 && sueldo < 895.25){
+        if (sueldo > 472.0 && sueldo < 895.25) {
             sueldo = sueldo - afp - isss - (sueldo * 0.10);
             return sueldo;
-        } else if (sueldo >= 895.25 && sueldo <= 2038.10 ) {
+        } else if (sueldo >= 895.25 && sueldo <= 2038.10) {
             sueldo = sueldo - afp - isss - (sueldo * 0.20);
             return sueldo;
-        } else if (sueldo > 2038.10 ) {
+        } else if (sueldo > 2038.10) {
             sueldo = sueldo - afp - isss - (sueldo * 0.30);
-            return  sueldo;
+            return sueldo;
         }
-        else return null;
+        return sueldo - afp - isss;
     }
 }
